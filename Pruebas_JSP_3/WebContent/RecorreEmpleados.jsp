@@ -76,8 +76,6 @@
 					<c:if test="${EmpTemp.salario >= 40000}"> ${0}</c:if>
 				</td>
 				<td>${EmpTemp.total + EmpTemp.salario + EmpTemp.bonus} </td>
-				<!-- <td><c:if test="${EmpTemp.salario < 40000}">5000</c:if><c:if test="${EmpTemp.salario >= 40000}">0</c:if></td> -->
-				
 				<br>
 			</tr>
 		
