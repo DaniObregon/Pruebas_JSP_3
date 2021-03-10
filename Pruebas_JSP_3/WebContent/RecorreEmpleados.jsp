@@ -21,7 +21,7 @@
  		
  		while(rs.next()){
  			
- 			datos.add(new Empleado(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4)));
+ 			datos.add(new Empleado(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getDouble(6)));
  			
  		}
  		
@@ -31,6 +31,7 @@
  	}catch(Exception e){
  		out.println("Error en conexión con base de datos wachiiinnn  -  " + e.toString());
  	}
+ 	
  	
  	pageContext.setAttribute("losEmpleados", datos);
  
@@ -59,7 +60,9 @@
 			<th>Apellido</th>
 			<th>Puesto</th>
 			<th>Salario</th>
-			<!-- <th>Bonus</th>  -->
+			<th>Bonus</th>
+			<th>Total</th>
+			
 		</tr>
 		
 		<c:forEach var="EmpTemp" items="${losEmpleados}">
@@ -68,9 +71,11 @@
 				<td>${EmpTemp.nombre}</td>
 				<td>${EmpTemp.apellido}</td>
 				<td>${EmpTemp.puesto}</td>
-				<td><c:if test="${EmpTemp.salario < 40000}"> ${EmpTemp.salario + 5000 }</c:if>
-					<c:if test="${EmpTemp.salario >= 40000}"> ${EmpTemp.salario}</c:if>
+				<td>${EmpTemp.salario}</td>
+				<td><c:if test="${EmpTemp.salario < 40000}"> ${EmpTemp.bonus + 5000}</c:if>
+					<c:if test="${EmpTemp.salario >= 40000}"> ${0}</c:if>
 				</td>
+				<td>${EmpTemp.total + EmpTemp.salario + EmpTemp.bonus} </td>
 				<!-- <td><c:if test="${EmpTemp.salario < 40000}">5000</c:if><c:if test="${EmpTemp.salario >= 40000}">0</c:if></td> -->
 				
 				<br>
