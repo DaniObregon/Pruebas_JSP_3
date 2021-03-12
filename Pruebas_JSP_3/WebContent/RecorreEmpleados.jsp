@@ -72,8 +72,8 @@
 				<td>${EmpTemp.apellido}</td>
 				<td>${EmpTemp.puesto}</td>
 				<td>${EmpTemp.salario}</td>
-				<td><c:if test="${EmpTemp.salario < 40000}"> ${EmpTemp.bonus + 5000}</c:if>
-					<c:if test="${EmpTemp.salario >= 40000}"> ${0}</c:if>
+				<td><c:if test="${EmpTemp.salario < 40000}">${EmpTemp.bonus = 5000}</c:if>
+					<c:if test="${EmpTemp.salario >= 40000}">${0}</c:if>
 				</td>
 				<td>${EmpTemp.total + EmpTemp.salario + EmpTemp.bonus} </td>
 				<br>
