@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+    
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
  <%@ page import="java.util.*, java.sql.*, com.pildorasinformaticas.jsptags.Empleado" %>
  
  <%
@@ -48,6 +50,15 @@
 	.cabecera{
 		font-weight: bold;
 	}
+	
+	body {
+		background-color: activeborder;
+	}
+	
+	table {
+		background-color: gray;
+		border-color: aqua;
+	}
 
 </style>
 
@@ -72,8 +83,12 @@
 				<td>${EmpTemp.apellido}</td>
 				<td>${EmpTemp.puesto}</td>
 				<td>${EmpTemp.salario}</td>
-				<td><c:if test="${EmpTemp.salario < 40000}">${EmpTemp.bonus = 5000}</c:if>
-					<c:if test="${EmpTemp.salario >= 40000}">${0}</c:if>
+				<td> 
+				<c:choose>
+					<c:when test="${EmpTemp.salario < 40000}">${EmpTemp.bonus = 5000}</c:when>
+					<c:when test="${EmpTemp.salario > 40000 && EmpTemp.salario <= 50000}">${EmpTemp.bonus = 2000}</c:when>
+					<c:otherwise>${EmpTemp.bonus = 0}</c:otherwise>
+				</c:choose> 
 				</td>
 				<td>${EmpTemp.total + EmpTemp.salario + EmpTemp.bonus} </td>
 				<br>
