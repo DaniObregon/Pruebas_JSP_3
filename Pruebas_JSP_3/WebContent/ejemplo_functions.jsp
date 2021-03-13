@@ -10,6 +10,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+	.cabecera{
+		font-weight: bold;
+	}
+	
+	body {
+		background-color: activeborder;
+	}
+	
+	table {
+		background-color: gray;
+		border-color: aqua;
+	}
+
+</style>
 </head>
 <body>
 	
